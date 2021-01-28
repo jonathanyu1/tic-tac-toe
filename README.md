@@ -1,0 +1,1 @@
+This project is a simple tic-tac-toe game aimed to practice using modules, factories, proper inheritance and public/private scoping.
