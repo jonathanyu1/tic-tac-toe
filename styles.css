@@ -9,12 +9,40 @@ html, body{
 
 .bodyContainer{
     display: grid;
+    grid-template-columns: 25% auto 25%;
+    grid-template-rows: 100px 50px auto 150px;
+    grid-template-areas: "playerOne header playerTwo"
+                         "playerOne gameMessage playerTwo"
+                         "playerOne boardContainer playerTwo"
+                         "playerOne gameButtons playerTwo";
+}
+
+.header{
+    grid-area: header;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.playerOneSide{
+    grid-area: playerOne;
+}
+
+.playerTwoSide{
+    grid-area: playerTwo;
+}
+
+.gameMessage{
+    grid-area: gameMessage;
 }
 
 .boardContainer{
     width: 600px;
     height: 600px;
     display: grid;
+    grid-area: boardContainer;
     grid-template-columns: repeat(3,1fr);
     grid-template-rows: repeat(3,1fr);
 }
@@ -47,4 +75,8 @@ html, body{
 
 .cell:hover {
     background-color: yellow;
+}
+
+.gameButtons{
+    grid-area:gameButtons;
 }
