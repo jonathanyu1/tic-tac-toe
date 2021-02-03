@@ -39,8 +39,8 @@ html, body{
 }
 
 .boardContainer{
-    width: 600px;
-    height: 600px;
+    width: 750px;
+    height: 750px;
     display: grid;
     grid-area: boardContainer;
     grid-template-columns: repeat(3,1fr);

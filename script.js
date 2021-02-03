@@ -104,6 +104,9 @@ const game = (() => {
                 winMark = board[condition[0]].innerHTML;
             }
         });
+        if (turn===10 && winMark===''){
+            winMark='tie';
+        }
         return winMark;
     };
 
@@ -116,6 +119,8 @@ const game = (() => {
             gameMessage.innerHTML=`${playerTwo.getName()} wins! Play Again?`;
             playerTwo.incrementScore();
             playerTwoScore.innerHTML=playerTwo.getScore();
+        } else if (currMarkWinner==='tie'){
+            gameMessage.innerHTML=`The game is a tie! Play Again?`;
         }
 
     }
@@ -165,7 +170,7 @@ const game = (() => {
 
     cellListener();
 
-    
+
     return {
         checkWin
     };
