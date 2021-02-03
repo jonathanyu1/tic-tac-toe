@@ -11,10 +11,11 @@ html, body{
     display: grid;
     grid-template-columns: 25% auto 25%;
     grid-template-rows: 100px 50px auto 150px;
-    grid-template-areas: "playerOne header playerTwo"
+    grid-template-areas: "header header header"
                          "playerOne gameMessage playerTwo"
                          "playerOne boardContainer playerTwo"
                          "playerOne gameButtons playerTwo";
+    justify-items: center;
 }
 
 .header{
@@ -45,6 +46,7 @@ html, body{
     grid-area: boardContainer;
     grid-template-columns: repeat(3,1fr);
     grid-template-rows: repeat(3,1fr);
+    
 }
 
 .cell{
