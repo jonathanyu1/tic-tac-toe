@@ -44,6 +44,9 @@ const player = (mark, name) => {
     const incrementScore = () => {
         score++;
     }
+    const resetScore = () => {
+        score=0;
+    }
     const getScore = () => score;
     const getMark = () => mark;
     const setName = (newName) =>{
@@ -53,6 +56,7 @@ const player = (mark, name) => {
     return {
         getMark,
         getScore,
+        resetScore,
         incrementScore,
         setName,
         getName
@@ -165,8 +169,20 @@ const game = (() => {
         currMarkWinner='';
         cellListener();
     }
+    const resetScore = () => {
+        playerOne.resetScore();
+        playerOneScore.innerHTML=playerOne.getScore();
+        playerTwo.resetScore();
+        playerOneScore.innerHTML=playerTwo.getScore();
+    }
+    const restartAll = () => {
+        clearBoard();
+        playerOne.resetScore();
+        playerOneScore.innerHTML=playerOne.getScore();
+    }
 
     clearBoardBtn.addEventListener('click', clearBoard);
+    restartAllBtn.addEventListener('click', restartAll);
 
     cellListener();
 
