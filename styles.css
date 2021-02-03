@@ -9,13 +9,16 @@ html, body{
 
 .bodyContainer{
     display: grid;
-    grid-template-columns: 25% auto 25%;
-    grid-template-rows: 100px 50px auto 150px;
+    grid-template-columns: 35% auto 35%;
+    grid-template-rows: 100px 75px auto 150px;
     grid-template-areas: "header header header"
                          "playerOne gameMessage playerTwo"
                          "playerOne boardContainer playerTwo"
                          "playerOne gameButtons playerTwo";
     justify-items: center;
+   /* background-color: 	#F0F0F0; */
+   background-color: #c94c4c;
+   color: white;
 }
 
 .header{
@@ -24,20 +27,54 @@ html, body{
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    
+    font-size: 75px;
+    font-style: italic;
+    text-decoration: underline;
+    font-family: 'Meera Inimai', sans-serif;
 }
 
+
+/* player one */ 
 .playerOneSide{
     grid-area: playerOne;
 }
 
+.gameMessage{
+    grid-area: gameMessage;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    font-family: 'Meera Inimai', sans-serif;
+}
+
+
+.playerOneName{
+    font-family: 'Meera Inimai', sans-serif;
+}
+
+.playerOneScore{
+    padding-top: 200px;
+    font-size: 200px;
+    font-family: 'Meera Inimai', sans-serif;
+}
+
+/* player two */
 .playerTwoSide{
     grid-area: playerTwo;
 }
 
-.gameMessage{
-    grid-area: gameMessage;
+.playerTwoName{
+    font-family: 'Meera Inimai', sans-serif;
 }
+
+.playerTwoScore{
+    padding-top: 200px;
+    font-size: 200px;
+    font-family: 'Meera Inimai', sans-serif;
+}
+
 
 .boardContainer{
     width: 750px;
@@ -46,14 +83,15 @@ html, body{
     grid-area: boardContainer;
     grid-template-columns: repeat(3,1fr);
     grid-template-rows: repeat(3,1fr);
-    
+    padding-top: 50px;
+    font-family: 'Titillium Web', sans-serif;
 }
 
 .cell{
     /*
     border: 1px solid rgba(128,128,128,0.3);
     */
-    border: 2px solid black;
+    border: 2px solid rgba(245, 245, 245, 0.719);
     font-size: 100px;
     text-align: center;
     padding-top: 40px;
@@ -76,9 +114,34 @@ html, body{
 }
 
 .cell:hover {
-    background-color: yellow;
+    background-color:#b06565;
 }
 
-.gameButtons{
+/* game buttons */
+
+.gameButtonsContainer{
     grid-area:gameButtons;
+    
+}
+
+.gameBtn{
+    font-size: 50px;
+    font-family: 'Meera Inimai', sans-serif;
+    border: none;
+    background-color:#c94c4c;
+    color: white;
+    padding: 20px 20px;
+}
+
+.gameBtn:hover{
+    background-color:#b06565;
+}
+
+#clear{
+    margin-right: 50px;
+    margin-top: -50px;
+}
+
+#restart{
+
 }
