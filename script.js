@@ -82,6 +82,8 @@ const game = (() => {
     const restartAllBtn = document.querySelector('#restart');
     const playerOneScore = document.querySelector('.playerOneScore');
     const playerTwoScore = document.querySelector('.playerTwoScore');
+    const playerOneName = document.querySelector('#playerOneName');
+    const playerTwoName = document.querySelector('#playerTwoName');
 
     gameBoard.createBoard();
     const board = gameBoard.getBoard();
@@ -160,6 +162,7 @@ const game = (() => {
 
 
     const clearBoard = () => {
+        // 'Play Again' button
         // clear board, reset turns
         console.log('hi clear board');
         gameBoard.clearBoard();
@@ -173,21 +176,40 @@ const game = (() => {
         playerOne.resetScore();
         playerOneScore.innerHTML=playerOne.getScore();
         playerTwo.resetScore();
-        playerOneScore.innerHTML=playerTwo.getScore();
+        playerTwoScore.innerHTML=playerTwo.getScore();
     }
+
+    const resetNames = () => {
+        playerOne.setName('Player One');
+        playerOneName.value='Player One';
+        playerTwo.setName('Player Two');
+        playerTwoName.value='Player Two';
+    }    
+
+    const changeName = (e, player) => {
+        console.log(e);
+        console.log(e.target);
+        console.log(player);
+        player.setName(e.target.value);
+    }
+
     const restartAll = () => {
+        // 'Restart All' button
+        resetNames();
         clearBoard();
-        playerOne.resetScore();
-        playerOneScore.innerHTML=playerOne.getScore();
+        resetScore();
     }
 
     clearBoardBtn.addEventListener('click', clearBoard);
     restartAllBtn.addEventListener('click', restartAll);
+    playerOneName.addEventListener('change', (e)=>{
+        changeName(e,playerOne);
+    });
+    playerTwoName.addEventListener('change', (e)=>{
+        changeName(e,playerTwo);
+    });
 
     cellListener();
 
-
-    return {
-        checkWin
-    };
+    return {};
 })();

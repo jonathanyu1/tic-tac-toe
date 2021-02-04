@@ -35,7 +35,7 @@ html, body{
 
 
 /* player one */ 
-.playerOneSide{
+.playerOne{
     grid-area: playerOne;
 }
 
@@ -49,32 +49,41 @@ html, body{
     font-family: 'Meera Inimai', sans-serif;
 }
 
-
-.playerOneName{
-    font-family: 'Meera Inimai', sans-serif;
-}
-
 .playerOneScore{
-    padding-top: 200px;
+    padding-top: 175px;
     font-size: 200px;
     font-family: 'Meera Inimai', sans-serif;
+    text-align: center;
 }
 
 /* player two */
-.playerTwoSide{
+.playerTwo{
     grid-area: playerTwo;
 }
 
-.playerTwoName{
-    font-family: 'Meera Inimai', sans-serif;
-}
-
 .playerTwoScore{
-    padding-top: 200px;
+    padding-top: 175px;
     font-size: 200px;
     font-family: 'Meera Inimai', sans-serif;
+    text-align: center;
 }
 
+/* player Name container */
+
+input:focus{
+    outline: none;
+}
+
+.playerName{
+    font-family: 'Meera Inimai', sans-serif;
+    border: none;
+    background-color:#c94c4c;
+    color: white;
+    width: 400px;
+    font-size: 40px;
+    text-align: center;
+}
+/* board container */
 
 .boardContainer{
     width: 750px;
