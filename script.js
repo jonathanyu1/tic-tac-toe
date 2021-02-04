@@ -98,6 +98,17 @@ const game = (() => {
     // console.log(playerOne.incrementScore());
     // console.log(playerOne.getScore());
 
+
+    const turnColorOn = (playerName, playerScore) =>{
+        playerName.style.color = 'yellow';
+        playerScore.style.color = 'yellow';
+    }
+
+    const turnColorOff = (playerName, playerScore) => {
+        playerName.style.color = 'white';
+        playerScore.style.color = 'white';
+    }
+
     const checkWin = () => {
         console.log(board);
         let winMark = '';
@@ -121,14 +132,19 @@ const game = (() => {
             gameMessage.innerHTML=`${playerOne.getName()} wins! Play Again?`;
             playerOne.incrementScore();
             playerOneScore.innerHTML=playerOne.getScore();
+            turnColorOn(playerOneName,playerOneScore);
+            turnColorOff(playerTwoName,playerTwoScore);
         } else if (currMarkWinner==='O'){
             gameMessage.innerHTML=`${playerTwo.getName()} wins! Play Again?`;
             playerTwo.incrementScore();
             playerTwoScore.innerHTML=playerTwo.getScore();
+            turnColorOn(playerTwoName,playerTwoScore);
+            turnColorOff(playerOneName,playerOneScore);
         } else if (currMarkWinner==='tie'){
             gameMessage.innerHTML=`The game is a tie! Play Again?`;
+            turnColorOff(playerOneName,playerOneScore);
+            turnColorOff(playerTwoName,playerTwoScore);
         }
-
     }
 
     const cellListener = () => {
@@ -144,11 +160,15 @@ const game = (() => {
                     turn++;
                     console.log('X');
                     gameMessage.innerHTML=`${playerTwo.getName()}'s turn`;
+                    turnColorOn(playerTwoName,playerTwoScore);
+                    turnColorOff(playerOneName,playerOneScore);
                 } else {
                     e.target.innerHTML=playerTwo.getMark();
                     gameMessage.innerHTML=`${playerOne.getName()}'s turn`;
                     turn++;
                     console.log('O');
+                    turnColorOn(playerOneName,playerOneScore);
+                    turnColorOff(playerTwoName,playerTwoScore);
                 }
     
                 console.log('turn '+turn);
@@ -160,18 +180,6 @@ const game = (() => {
         });
     }
 
-
-    const clearBoard = () => {
-        // 'Play Again' button
-        // clear board, reset turns
-        console.log('hi clear board');
-        gameBoard.clearBoard();
-        // need to add event listeners from before
-        turn=1;
-        gameMessage.innerHTML=`${playerOne.getName()}'s turn`;
-        currMarkWinner='';
-        cellListener();
-    }
     const resetScore = () => {
         playerOne.resetScore();
         playerOneScore.innerHTML=playerOne.getScore();
@@ -193,11 +201,27 @@ const game = (() => {
         player.setName(e.target.value);
     }
 
+    const clearBoard = () => {
+        // 'Play Again' button
+        // clear board, reset turns
+        console.log('hi clear board');
+        gameBoard.clearBoard();
+        // need to add event listeners from before
+        turn=1;
+        gameMessage.innerHTML=`${playerOne.getName()}'s turn`;
+        currMarkWinner='';
+        cellListener();
+        turnColorOn(playerOneName,playerOneScore);
+        turnColorOff(playerTwoName,playerTwoScore);
+    }
+
     const restartAll = () => {
         // 'Restart All' button
         resetNames();
         clearBoard();
         resetScore();
+        turnColorOn(playerOneName,playerOneScore);
+        turnColorOff(playerTwoName,playerTwoScore);
     }
 
     clearBoardBtn.addEventListener('click', clearBoard);

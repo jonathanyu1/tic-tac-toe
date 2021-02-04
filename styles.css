@@ -33,12 +33,6 @@ html, body{
     font-family: 'Meera Inimai', sans-serif;
 }
 
-
-/* player one */ 
-.playerOne{
-    grid-area: playerOne;
-}
-
 .gameMessage{
     grid-area: gameMessage;
     display: flex;
@@ -49,11 +43,21 @@ html, body{
     font-family: 'Meera Inimai', sans-serif;
 }
 
+/* player one */ 
+.playerOne{
+    grid-area: playerOne;
+}
+
 .playerOneScore{
     padding-top: 175px;
     font-size: 200px;
     font-family: 'Meera Inimai', sans-serif;
     text-align: center;
+    color: yellow;
+}
+
+#playerOneName{
+    color: yellow;
 }
 
 /* player two */
@@ -128,9 +132,12 @@ input:focus{
 
 /* game buttons */
 
+button:focus{
+    outline: none;
+}
+
 .gameButtonsContainer{
     grid-area:gameButtons;
-    
 }
 
 .gameBtn{
@@ -149,8 +156,4 @@ input:focus{
 #clear{
     margin-right: 50px;
     margin-top: -50px;
-}
-
-#restart{
-
 }
