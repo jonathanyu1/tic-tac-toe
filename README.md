@@ -11,3 +11,5 @@ Preview Link: https://jonathanyu1.github.io/tic-tac-toe/
 * Learning proper syntax of object oriented coding in javascript
 
 * Refactoring project dimensions to fit within common screen sizes
+
+* Learning proper usage of Factories and Modules
