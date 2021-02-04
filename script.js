@@ -5,15 +5,11 @@ const gameBoard = (() => {
 
     const createBoard = () =>{
         for (i=0;i<9;i++){
-            console.log(i);
             const cell=document.createElement('div');
             cell.classList.add('cell');
             cell.id = `cell-${i}`;
             boardContainer.appendChild(cell);
             board[i]=cell;
-            // cell.addEventListener('click', function(e){
-            //     console.log(e.target);
-            // });
         }
     }
 
@@ -89,15 +85,6 @@ const game = (() => {
     const board = gameBoard.getBoard();
     const playerOne = player('X', 'Player One');
     const playerTwo = player('O', 'Player Two');
-    // console.log(playerOne.setName('jon'));
-    // console.log(playerOne.getName());
-    // console.log(playerOne.getMark());
-    // console.log(playerTwo.getMark());
-    // console.log(playerOne.getScore());
-    // console.log(playerTwo.getScore());
-    // console.log(playerOne.incrementScore());
-    // console.log(playerOne.getScore());
-
 
     const turnColorOn = (playerName, playerScore) =>{
         playerName.style.color = 'yellow';
@@ -110,14 +97,12 @@ const game = (() => {
     }
 
     const checkWin = () => {
-        console.log(board);
         let winMark = '';
         winCon.forEach((condition)=>{
             // check if matches win condition, and makes sure not empty 
             if (board[condition[0]].innerHTML !== '' 
             && (board[condition[0]].innerHTML===board[condition[1]].innerHTML 
             && board[condition[0]].innerHTML===board[condition[2]].innerHTML)){
-                console.log(`winner is ${board[condition[0]].innerHTML}`);
                 winMark = board[condition[0]].innerHTML;
             }
         });
@@ -150,15 +135,12 @@ const game = (() => {
     const cellListener = () => {
         board.forEach((cell)=>{
             cell.addEventListener('click', function(e){
-                console.log(e.target);
                 // prevent same cell from being clicked
                 if (e.target.innerHTML !== '' || turn==10 || currMarkWinner!==''){
-                    console.log('cannot');
                     return;
                 } else if (turn%2){
                     e.target.innerHTML=playerOne.getMark();
                     turn++;
-                    console.log('X');
                     gameMessage.innerHTML=`${playerTwo.getName()}'s turn`;
                     turnColorOn(playerTwoName,playerTwoScore);
                     turnColorOff(playerOneName,playerOneScore);
@@ -166,15 +148,11 @@ const game = (() => {
                     e.target.innerHTML=playerTwo.getMark();
                     gameMessage.innerHTML=`${playerOne.getName()}'s turn`;
                     turn++;
-                    console.log('O');
                     turnColorOn(playerOneName,playerOneScore);
                     turnColorOff(playerTwoName,playerTwoScore);
                 }
-    
-                console.log('turn '+turn);
                 // check win
                 currMarkWinner = checkWin();
-                console.log(currMarkWinner+' winner');
                 resolveWin();
             });
         });
@@ -195,19 +173,15 @@ const game = (() => {
     }    
 
     const changeName = (e, player) => {
-        console.log(e);
-        console.log(e.target);
-        console.log(player);
         player.setName(e.target.value);
     }
 
     const clearBoard = () => {
         // 'Play Again' button
-        // clear board, reset turns
-        console.log('hi clear board');
         gameBoard.clearBoard();
-        // need to add event listeners from before
+        // resets turn
         turn=1;
+        // need to add event listeners from before
         gameMessage.innerHTML=`${playerOne.getName()}'s turn`;
         currMarkWinner='';
         cellListener();

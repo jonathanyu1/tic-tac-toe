@@ -16,9 +16,8 @@ html, body{
                          "playerOne boardContainer playerTwo"
                          "playerOne gameButtons playerTwo";
     justify-items: center;
-   /* background-color: 	#F0F0F0; */
-   background-color: #c94c4c;
-   color: white;
+    background-color: #c94c4c;
+    color: white;
 }
 
 .header{
@@ -101,9 +100,6 @@ input:focus{
 }
 
 .cell{
-    /*
-    border: 1px solid rgba(128,128,128,0.3);
-    */
     border: 2px solid rgba(245, 245, 245, 0.719);
     font-size: 100px;
     text-align: center;
