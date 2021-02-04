@@ -9,8 +9,8 @@ html, body{
 
 .bodyContainer{
     display: grid;
-    grid-template-columns: 35% auto 35%;
-    grid-template-rows: 100px 75px auto 150px;
+    grid-template-columns: auto 700px auto;
+    grid-template-rows: 100px 75px 700px 150px;
     grid-template-areas: "header header header"
                          "playerOne gameMessage playerTwo"
                          "playerOne boardContainer playerTwo"
@@ -89,8 +89,8 @@ input:focus{
 /* board container */
 
 .boardContainer{
-    width: 750px;
-    height: 750px;
+    width: 700px;
+    height: 700px;
     display: grid;
     grid-area: boardContainer;
     grid-template-columns: repeat(3,1fr);
@@ -151,5 +151,5 @@ button:focus{
 
 #clear{
     margin-right: 50px;
-    margin-top: -50px;
+    margin-top: 50px;
 }
